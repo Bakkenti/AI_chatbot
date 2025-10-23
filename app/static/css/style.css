@@ -1,0 +1,335 @@
+body { 
+    font-family: Arial, sans-serif; 
+    background: #111; 
+    color: #eee; 
+    margin-right: 40px; 
+    display: flex; 
+    height: 100vh; 
+}
+
+#sidebar {
+    width: 280px;
+    background: #1a1a1a;
+    border-right: 1px solid #333;
+    padding: 20px;
+    overflow-y: auto;   
+}
+
+#sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #4a90e2;
+}
+
+#sidebar ul {
+      list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar li {
+    margin: 10px 0;
+    padding: 5px 10px;
+    background-color: #357ab8;
+    height: auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#sidebar a {
+    color: #eee;
+    text-decoration: none;
+}
+
+ #sidebar a:hover {
+    color: #fff;
+
+}
+
+#main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+}
+h2 { 
+    margin-bottom: 10px; 
+}
+
+#chat-box {
+    width: 90%;
+    max-width: 600px;
+    height: 85vh;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background: #1a1a1a;
+}
+
+#messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+        
+.msg {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 6px;
+    max-width: 75%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.sendMsg{
+    display: flex;
+    justify-content:space-between;
+}
+
+.optionButton{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.save{
+    width: 48%;    
+}
+
+.pdf{
+    width: 48%;
+}
+.user {
+    align-self: flex-end;
+    background: #3a3f58;
+}
+
+.ai {
+    align-self: flex-start;
+    background: #2d2d2d;
+}
+
+#input-area {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #222;
+    color: #eee;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #4a90e2;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #357ab8;
+}
+
+#fileInput { 
+    display: none; 
+}
+
+#saveModal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+    justify-content: center; 
+    align-items: center;
+}
+
+#saveModalContent {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    color: #eee;
+    box-shadow: 0 0 10px #000;
+}
+
+#saveModalContent input {
+    width: 80%;
+    padding: 6px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #222;
+    color: #eee;
+}
+
+#saveModalContent button {
+    margin-top: 10px;
+}
+
+#file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0;
+}
+
+.file-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 8px 10px;
+    transition: background 0.2s;
+}
+
+.file-row:hover {
+    background: #222;
+}
+
+.file-box {
+    flex-grow: 2;
+    min-width: 150px;
+    max-width: calc(100% - 100px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+    background: #357ab8;
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+.file-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.file-actions button {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #4a90e2;
+    font-size: 1rem;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.file-actions .download-btn:hover {
+    background: #4a90e2;
+    color: white;
+}
+
+.file-actions .delete-btn {
+    color: #ff6666;
+}
+
+.file-actions .delete-btn:hover {
+    background: #ff4444;
+    color: white;
+}
+
+#confirmYes, #confirmNo {
+    transition: 0.2s;
+}
+
+#confirmYes:hover {
+    background: #357ab8;
+}
+
+#confirmNo:hover {
+    background: #777;
+}
+
+.fancy-btn {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    background: linear-gradient(45deg, #4a90e2, #357ab8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.fancy-btn:hover {
+    background: linear-gradient(45deg, #357ab8, #4a90e2);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.no-btn {
+    background: linear-gradient(45deg, #ff6666, #ff4444);
+}
+
+.no-btn:hover {
+    background: linear-gradient(45deg, #ff4444, #ff6666);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    
+}
+
+#chat-list {
+    width: 220px;
+    background: #1a1a1a;
+    border-left: 1px solid #333;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#chats {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.chat-item {
+    background: #222;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #eee;
+    transition: 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-item.active {
+    background: #357ab8;
+}
+
+#newChatBtn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: #4a90e2;
+    color: #fff;
+    cursor: pointer;
+}
+#newChatBtn:hover {
+    background: #357ab8;
+}
+
